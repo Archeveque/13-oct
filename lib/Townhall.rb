@@ -11,6 +11,7 @@ def get_townhall_urls(townhall_name,townhall_mail)
 page = Nokogiri::HTML(URI.open("http://www.annuaire-des-mairies.com/val-d-oise.html"))
 
 page.xpath('//a[contains(@class,"lientxt")]').each do |name|
+  #you can use //a[contains[.....]/@href to directly have the link (but my way was funnier)
   townhall_url=name.text.downcase!.gsub(" ", "-")
   townhall_email(townhall_url,townhall_name,townhall_mail)
   puts "#{townhall_url} done."
