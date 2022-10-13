@@ -31,4 +31,22 @@ print crypto_infos
 puts " "
 end
 
+def test_crypto_data
+  page = Nokogiri::HTML(URI.open("https://coinmarketcap.com/all/views/all/"))
+page.xpath('//a[contains(@class,"cmc-table__column-name--name cmc-link")]').each do |name_crypto|
+  return name_crypto.text
+end
+end
+
+def test_crypto_value
+  page = Nokogiri::HTML(URI.open("https://coinmarketcap.com/all/views/all/"))
+  page.xpath('//div[contains(@class,"cmc-table__table-wrapper-outer")]//*[contains(@class,"cmc-link")]//span').each do |value_crypto|
+  return value_crypto.text
+end
+end
+
+def test_crypto_infos(crypto_names,crypto_values)
+crypto_infos = crypto_names.zip(crypto_values)
+return crypto_infos
+end
 crypto_data
