@@ -31,7 +31,6 @@ return townhall_name
 end
 
 
-#/////////////////////////
 def old_townhall_email(townhall_url) #previous version of the code
 
 townhall_mail = []
