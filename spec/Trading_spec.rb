@@ -8,7 +8,7 @@ end
 
 describe "hash is working" do
     it "should return the name and the value" do
-      expect(test_crypto_infos("Bitcoin","$3.50").to eq(["Bitcoin","$3.50")]
+      expect(test_crypto_infos(["Bitcoin"],["$3.50"]).to eq([["Bitcoin","$3.50"]])
     end
 end
 
